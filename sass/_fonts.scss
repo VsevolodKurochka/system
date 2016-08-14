@@ -1,10 +1,17 @@
 /* ===================== 
 Start: Connect fonts      
 ======================== */
-@include connect-font(ProximaRegular,regular);
-@include connect-font(ProximaBold,bold);
-@include connect-font(ProximaLight,light);
-@include connect-font(ProximaBlack,black_font);
+// @include connect-font(ProximaRegular,regular);
+// @include connect-font(ProximaBold,bold);
+// @include connect-font(ProximaLight,light);
+// @include connect-font(ProximaBlack,black_font);
+.regular{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+.bold{
+	font-weight: 700;
+}
 /* =====================
 End:  Connect fonts
 ======================== */

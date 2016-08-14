@@ -1,22 +1,28 @@
 // COLOR
 $colors:(
 	"black"      	: #000,
+	"grey"        : #f2f0ee,
+	"dark-grey"   : #808080,
 	"white"      	: #fff,
 	"green"      	: #5bb85d,
-	"corporative"	: #ff8001
+	"corporative"	: #ff8001,
+	"blue"        : #2698a3,
+	"blue-light"  : #32a3db,
+	"orange"      : #ee7139,
+	"dark-orange" : #d46331
 );
 
 // SIZE
 $sizes: (
 	text_smaller    : 12px,
-	text_small      : 14px,
+	text_small      : 16px,
 	text_default    : 18px,
-	text_big   		: 21px,
+	text_big   			: 21px,
 	text_title      : 24px,
-	small_title  	: 30px,
+	small_title  		: 30px,
 	default_title   : 36px,
-	normal_title 	: 48px,
-	big_title    	: 80px
+	normal_title 		: 40px,
+	big_title    		: 80px
 );
 /* ===================== 
 Start: COLOR AND SIZE      

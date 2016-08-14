@@ -1,22 +1,25 @@
+.tr-def{
+  transition: all ease .3s;
+}
 .btn {
   border: none;
-  border-radius: 3px;
+  border-radius: 0;
   max-width: 100%;
-  padding: 10px 40px;
-  position: relative;
+  padding: 25px 20px;
   overflow: hidden;
-  transition: all .3s;
   text-decoration: none;
   z-index: 2;
+  @extend .tr-def;
   @extend .block-inline;
   @extend .bold;
-  @include size(text_default);
+  @extend %relative;
+  @include size(text_small);
   @include color("white");
   &-effect{
    &:before{
       content: "";
       position: absolute;
-      transition: all .3s;
+      @extend .tr-def;
       z-index: -1;
       width: 100%;
       height: 0;
@@ -32,6 +35,25 @@
       }
     }
   }
+  &-orange{
+    background-color: map-get($colors, "orange");
+    &:after{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 6px;
+      z-index: -1;
+      @extend .tr-def;
+      background-color: map-get($colors, "dark-orange");
+    }
+    &:hover{
+      &:after{
+        height: 100%;
+      }
+    }
+  }
   &-single{
     @include resp-min(sm){
       margin-top: 70px;
@@ -41,49 +63,6 @@
     }
   }
 }
-// .toggle{
-//   &-subtitle-no-margin{
-//     .subtitle{
-//       margin-bottom: 0;
-//     }
-//   }
-//   &-inner{
-//     @extend .cf;
-//     @include resp-min(sm){
-//       &-big-margin{
-//        margin-bottom: 150px;
-//         &:last-child{
-//           margin-bottom: 75px;
-//         }
-//       }
-//       &-small-margin{
-//         margin-bottom: 50px;
-//         &:last-child{
-//           margin-bottom: 0;
-//         }
-//       }
-//     }
-//     &-img{
-//       @extend .text-center;
-//     }
-//   }
-//   @include resp-min(sm){
-//     //ODD - нечетное
-//     .toggle-inner-right:nth-child(odd) .toggle-inner-img,
-//     .toggle-inner-right:nth-child(even) .toggle-inner-text,
-//     .toggle-inner-left:nth-child(odd) .toggle-inner-text,
-//     .toggle-inner-left:nth-child(even).toggle-inner-img {      
-//         float: right;
-//     }
-//     .toggle-inner-right:nth-child(even){
-//       .toggle-inner-text{
-//         .subtitle,p{
-//           text-align: right;
-//         }
-//       }
-//     }   
-//   }
-// }
 .list{
   li{
     position: relative; 
@@ -100,27 +79,34 @@
     }
     @include resp-max(sm){
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       &:after{
         left: 50%;
       }
     }
   }
-  &-cancel{
+  &-black{
     li{
       @include resp-min(sm){
-        padding-left: 50px;
+        margin-bottom: 7.5px;
+        padding-left: 30px;
+        padding-right: 15px;
+        &:after{
+          top: 50%;
+          margin-top: -7.5px;
+        }
       }
       @include resp-max(sm){
-        padding-top: 40px;
+        padding-top: 15px;
         &:after{
-          margin-left: -18.5px;
+          margin-left: -7.5px;
         }
       }
       &:after{
-        width: 37px;
-        height: 37px;
-        @include bg("../img/cancel.png", 0 0, no-repeat, cover);
+        width: 15px;
+        height: 15px;
+        background-color: #121212;
+        border-radius: 100%;
       }
     }
   }
@@ -135,5 +121,211 @@
   img{
    max-height: 100%;
     vertical-align: middle;   
+  }
+}
+.bg{
+  display: inline-block;
+  padding: 2px 1px;
+  &-blue{
+    @extend .bg;
+    background-color: map-get($colors, "blue");
+  }
+  &-orange{
+    @extend .bg;
+    background-color: map-get($colors, "orange");
+  }
+}
+.form{
+  @extend .text-center;
+  @include resp-min(xs){
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-header{
+    @extend %relative;
+    &:after{
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -20px;
+      border: 20px solid transparent; 
+      border-top: 20px solid map-get($colors, "blue");
+    }
+    &-bigp{
+      @extend .form-header;
+      padding: 25px;
+    }
+    &-smallp{
+      @extend .form-header;
+      padding: 15px;
+    }
+    
+    background-color: map-get($colors, "blue");
+    // &-small-title{
+    //   font-size: 20px;
+    //   @extend .bold;
+    // }
+    &-middle-title{
+      font-size: 16px;
+      line-height: 1.2;
+      @extend .bold;
+      @include resp-min(xs){
+        font-size: 24px;  
+      }
+    }
+    // &-big-title{
+    //   font-size: 32px;
+    //   @extend .bold;
+    // }
+  }
+  &-body{
+    background-color: map-get($colors, "grey");
+    padding: 25px 0;
+    @include resp-min(xs){
+      padding: 25px 30px;
+    }
+    &-title{
+      @extend .black;
+      margin-bottom: 25px;
+    }
+  }
+  &-main{
+    input,
+    button{
+      width: 100%;
+      max-width: 100%;
+      outline: none;
+    }
+    input{
+      @extend .text-center;
+      @extend .text_small;
+      @extend .dark-grey;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #e9e7e5;
+      padding: 12px;
+      margin-bottom: 35px;
+      font-style: italic;
+      @extend .tr-def;
+      
+      &::-webkit-input-placeholder{
+        color: #808080;
+      }
+      &:-moz-placeholder {
+        color: #808080;
+      }
+      &::-moz-placeholder {
+        color: #808080;
+      }
+      &:-ms-input-placeholder {
+        color: #808080;
+      }
+      &:focus{
+        border-bottom-color: map-get($colors, "orange");
+      }
+    }
+    button{
+
+    }
+  }
+}
+.arrow{
+  border: 50px solid transparent;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  &-look-top{
+    @extend .arrow;
+    border-bottom: 50px solid #fff;
+    bottom: 0;
+  }
+  &-look-bottom{
+    @extend .arrow;
+    border-top: 50px solid #fff;
+    top: 0;
+  }
+}
+.chpi{
+  display: inline-block;
+  vertical-align: middle;
+  &-img{
+    margin-right: 15px;
+  }
+  @include resp-min(sm){
+    &-img{
+      float: left;
+    }
+    &-text{
+      overflow: hidden;
+    }
+  }
+  p{
+    line-height: 1;
+  }
+}
+.time-block{
+  @extend .chpi;
+  &-text{
+    @extend .bold;
+    .big{
+      font-size: 30px;
+    }
+    .small{
+      font-size: 20px;
+    }
+  }
+  @include resp-min(sm){
+    margin-right: 30px;
+  }
+}
+.amount{
+  @include resp-min(sm){
+    &-img{
+      margin-top: 10px;
+    }
+  }
+}
+.facebook{
+  @include resp-max(md){
+    max-height: 300px;
+  }
+  &-big{
+    position: absolute;
+    left: 0;
+    top: -200px;
+  }
+}
+.text-block{
+  p, ul {
+    margin-bottom: 7.5px;
+  }
+  @include resp-min(sm){
+    p,ul{
+      margin-bottom: 25px;
+    }
+  }
+  p:last-child{
+    margin-bottom: 0;
+  }
+}
+.img-def{
+  @include resp-max(md){
+    margin-bottom: 30px;
+  }
+}
+.key-spiker{
+  @include resp-min(sm){
+    position: absolute;
+    left: 0;
+    @include resp-max(md){
+      top: 40px;
+      padding: 0 15px;
+    }
+  }
+  @include resp-min(md){
+    top: -100px;
+    
   }
 }

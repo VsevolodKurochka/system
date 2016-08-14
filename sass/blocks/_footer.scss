@@ -3,10 +3,14 @@ Start: START FOOTER
 ======================== */
 .footer{
 	@extend .cf;
-	padding: 10px 15px;
-	background-color: #131313;
-	@extend .text-center;
+	padding: 150px 0;
+	@include bg('../img/section.jpg', 0 0, no-repeat,cover);
 	@extend .white;
+	@include resp-min(md){
+		&-text{
+			margin-top: 80px;
+		}
+	}
 	&-b{
 		display: inline-block;
 		vertical-align: middle;
@@ -14,7 +18,12 @@ Start: START FOOTER
 	}
 	a{
 		text-decoration: none;
-		@extend .light;
+		
+	}
+	.amount{
+		&-text{
+			font-size: 20px;
+		}
 	}
 }
 /* =====================
