@@ -3,7 +3,10 @@ Start: START FOOTER
 ======================== */
 .footer{
 	@extend .cf;
-	padding: 150px 0;
+	padding: 50px 0;
+	@include resp-min(sm){
+		padding: 150px 0;
+	}
 	@include bg('../img/section.jpg', 0 0, no-repeat,cover);
 	@extend .white;
 	@include resp-min(md){
@@ -11,21 +14,46 @@ Start: START FOOTER
 			margin-top: 80px;
 		}
 	}
-	&-b{
-		display: inline-block;
-		vertical-align: middle;
-		margin: 0 15px;
-	}
-	a{
-		text-decoration: none;
-		
-	}
+	
 	.amount{
-		&-text{
-			font-size: 20px;
+		@include resp-min(sm){
+			&-img{
+				margin-right: 30px;
+			}
+			&-text{
+				font-size: 20px;
+			}
 		}
 	}
 }
 /* =====================
 End:  START FOOTER
 ======================== */
+.copyright{
+	background-color: #292c2e;
+  padding: 15px;
+  color: #595b5c;
+  font-weight: 700;
+	&-b{
+		@extend .max-md-center;
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0 7.5px;
+		width: 100%;		
+		font-size: 14px;
+		@include resp-max(md){
+			margin-bottom: 15px;
+		}
+		@include resp-min(md){
+			font-size: 16px;
+			width: 24%;	
+			&-big{
+				width: 40%;
+			}
+		}
+	}
+	a{
+		text-decoration: none;
+		
+	}
+}

@@ -316,8 +316,9 @@
   }
 }
 .key-spiker{
+  position: absolute;
   @include resp-min(sm){
-    position: absolute;
+    
     left: 0;
     @include resp-max(md){
       top: 40px;
@@ -326,6 +327,104 @@
   }
   @include resp-min(md){
     top: -100px;
-    
+  }
+  &-block{
+    @include resp-max(sm){
+      position: relative;
+      height: 300px;
+      margin-bottom: -60px;
+      margin-top: 30px;
+      img{
+        max-height: 100%;
+        left: 50%;
+        margin-left: -100px;
+      }
+    }
+  }
+}
+.dn{
+  display: none;
+}
+.modal{
+  &-bd{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: transparent;
+
+  }
+  &-bg{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+  }
+  &-content{
+    padding: 0 15px;
+  }
+  &-inner{
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    padding: 15px;
+    @include resp-min(sm){
+      width: 700px;
+    }
+    min-height: 300px;
+    margin: 30px auto;
+    z-index: 100000;
+  }
+  &-close{
+    position: absolute;
+    right: 5px;
+    top: -40px;
+    @include resp-min(sm){
+      right: -40px;
+    top: -15px;
+    }
+    font-size: 33px;
+    font-weight: bold;
+    color: #f00;
+    cursor: pointer;
+  }
+  &-click{
+    cursor: pointer;
+  }
+  p{
+    margin-bottom: 7.5px;
+  }
+  &-header{
+    &-title{
+      text-align: center;
+      font-size: 16px;
+      @include resp-min(sm){
+        font-size: 22px;
+      }
+      background-color: rgba(238, 113, 57, 0.27);
+      padding: 10px;
+      margin-bottom: 10px;
+      color: #000;
+    }
+  }
+  &-open{
+    overflow: hidden;
+    padding-right: 17px;
+    .modal-bg{
+      overflow-y: visible;
+      opacity: 1;
+    }
   }
 }
